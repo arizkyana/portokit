@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portokit/providers/provider_root.dart';
 import 'package:portokit/screens/screen_explore.dart';
+import 'package:portokit/screens/screen_home.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -23,9 +24,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        fontFamily: "DMSans",
         primarySwatch: Colors.blue,
       ),
-      home: const ScreenExplore(),
+      home: const ScreenHome(),
     );
   }
 }
