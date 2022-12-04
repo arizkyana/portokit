@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:portokit/configs/themes.dart';
 
 class WidgetHeader extends StatelessWidget {
@@ -16,18 +17,44 @@ class WidgetHeader extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            child: Text("icon"),
+            child: SizedBox(
+              width: 25,
+              height: 25,
+              child: SvgPicture.asset(
+                'assets/icons/location-point.svg',
+                color: PortoKitTheme.of(context).generalLight,
+                semanticsLabel: "Location",
+              ),
+            ),
           ),
           SizedBox(
             width: 10,
           ),
           Expanded(
-            child: Container(
-              child: Text('Gram Bistro'),
+            child: GestureDetector(
+              onTap: () {},
+              child: Container(
+                child: Text(
+                  'Gram Bistro',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16,
+                    color: PortoKitTheme.of(context).generalMid,
+                  ),
+                ),
+              ),
             ),
           ),
           Container(
-            child: Text('Menu'),
+            child: SizedBox(
+              width: 25,
+              height: 25,
+              child: SvgPicture.asset(
+                'assets/icons/menu.svg',
+                color: PortoKitTheme.of(context).generalMain,
+                semanticsLabel: "Menu",
+              ),
+            ),
           ),
         ],
       ),
@@ -54,24 +81,46 @@ class _WidgetSearchState extends State<WidgetSearch> {
         width: double.infinity,
         padding: EdgeInsets.all(20),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(16),
           color: PortoKitTheme.of(context).white,
         ),
         child: Row(
           children: [
             Container(
-              child: Text('icon'),
+              child: SizedBox(
+                width: 20,
+                height: 20,
+                child: SvgPicture.asset(
+                  'assets/icons/search.svg',
+                  color: PortoKitTheme.of(context).generalLight,
+                  semanticsLabel: "Search",
+                ),
+              ),
             ),
             SizedBox(
               width: 10,
             ),
             Expanded(
               child: Container(
-                child: Text('Search'),
+                child: Text(
+                  'Search',
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
               ),
             ),
             Container(
-              child: Text('icon'),
+              child: SizedBox(
+                width: 20,
+                height: 20,
+                child: SvgPicture.asset(
+                  'assets/icons/filter.svg',
+                  color: PortoKitTheme.of(context).orangeMain,
+                  semanticsLabel: "Filter",
+                ),
+              ),
             ),
           ],
         ),
@@ -90,7 +139,7 @@ class WidgetItemBanner extends StatelessWidget {
       margin: EdgeInsets.only(
         right: 10,
       ),
-      padding: EdgeInsets.all(10),
+      padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: PortoKitTheme.of(context).generalDark,
@@ -112,20 +161,36 @@ class WidgetItemBanner extends StatelessWidget {
                       ),
                     ),
                   ),
+                  SizedBox(
+                    height: 10,
+                  ),
                   Container(
-                    child: Text(
-                      'Avocado Chicken Salad',
-                      style: TextStyle(
-                        color: PortoKitTheme.of(context).generalSoft,
+                      child: Row(
+                    children: [
+                      Expanded(
+                        child: Flexible(
+                          child: Text(
+                            'Avocado Chicken Salad',
+                            style: TextStyle(
+                              color: PortoKitTheme.of(context).generalSoft,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
+                    ],
+                  )),
+                  SizedBox(
+                    height: 10,
                   ),
                   Container(
                     child: Text(
                       '10.40',
                       style: TextStyle(
                         color: PortoKitTheme.of(context).orangeMain,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w800,
+                        fontSize: 16,
                       ),
                     ),
                   ),
@@ -325,7 +390,14 @@ class ScreenHome extends StatelessWidget {
                     horizontal: 16,
                   ),
                   alignment: Alignment.centerLeft,
-                  child: Text('Choose the best dish for you'),
+                  child: Text(
+                    'Choose the best dish for you',
+                    style: TextStyle(
+                      fontSize: 22,
+                      color: PortoKitTheme.of(context).generalMain,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
                 ),
                 SizedBox(
                   height: 15,
